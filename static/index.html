@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Search App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Weather Search</h1>
+            <p>Get current weather conditions for any city worldwide</p>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <div class="search-form">
+                    <input type="text" id="cityInput" placeholder="Enter city name (e.g., London, New York, Tokyo)" />
+                    <div class="unit-toggle">
+                        <label>
+                            <input type="radio" name="unit" value="celsius" checked> °C
+                        </label>
+                        <label>
+                            <input type="radio" name="unit" value="fahrenheit"> °F
+                        </label>
+                    </div>
+                    <button id="searchBtn">Search Weather</button>
+                </div>
+
+                <div class="quick-cities">
+                    <p>Quick search:</p>
+                    <div class="city-buttons">
+                        <button class="city-btn" data-city="London">London</button>
+                        <button class="city-btn" data-city="New York">New York</button>
+                        <button class="city-btn" data-city="Tokyo">Tokyo</button>
+                        <button class="city-btn" data-city="Paris">Paris</button>
+                        <button class="city-btn" data-city="Sydney">Sydney</button>
+                        <button class="city-btn" data-city="Mumbai">Mumbai</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="weatherResult" class="weather-result hidden">
+                <div class="weather-header">
+                    <h2 id="cityName"></h2>
+                    <div class="weather-icon" id="weatherIcon">🌤️</div>
+                </div>
+                <div class="weather-details">
+                    <div class="weather-item">
+                        <span class="label">Temperature:</span>
+                        <span class="value" id="temperature">--</span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Condition:</span>
+                        <span class="value" id="description">--</span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Humidity:</span>
+                        <span class="value" id="humidity">--</span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Wind Speed:</span>
+                        <span class="value" id="windSpeed">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <div class="error-icon">⚠️</div>
+                <p id="errorText"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
